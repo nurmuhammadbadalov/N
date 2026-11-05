@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyLand - Biz haqimizda</title>
+    <style>
+        :root {
+            --bg-color: #fff8f0;
+            --text-color: #2c3e50;
+            --nav-bg: #ffffff;
+            --card-bg: #ffffff;
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --border-color: #ffe3d8;
+            --shadow: 0 10px 20px rgba(255, 107, 107, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121824;
+            --text-color: #f1f5f9;
+            --nav-bg: #1e293b;
+            --card-bg: #1e293b;
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --border-color: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: var(--transition);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .theme-toggle {
+            background: var(--border-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .about-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card p {
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: var(--nav-bg);
+            border-top: 2px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🧸 ToyLand</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="products.html">O'yinchoqlar</a></li>
+                <li><a href="categories.html">Kategoriyalar</a></li>
+                <li><a href="about.html" class="active">Biz haqimizda</a></li>
+                <li><a href="contact.html">Bog'lanish</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggleBtn">🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Biz Haqimizda</h1>
+        <div class="about-card">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=800&q=80" alt="Bizning do'kon">
+            <p><strong>ToyLand</strong> magazini 2026-yilda tashkil etilgan bo'lib, har bir oilaga va bolajonga cheksiz quvonch ulashishni o'z oldiga maqsad qilgan.</p>
+            <p>Biz taklif etayotgan har bir o'yinchoq xalqaro sertifikatga ega va bolalar salomatligi uchun mutlaqo zararsiz bo'lgan oziq-ovqat plastiki va tabiiy yog'och materiallaridan tayyorlangan.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ToyLand O'yinchoqlar Magazini. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('toyLandTheme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('toyLandTheme', newTheme);
+            themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

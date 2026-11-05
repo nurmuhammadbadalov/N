@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyLand - Barcha O'yinchoqlar</title>
+    <style>
+        :root {
+            --bg-color: #fff8f0;
+            --text-color: #2c3e50;
+            --nav-bg: #ffffff;
+            --card-bg: #ffffff;
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --border-color: #ffe3d8;
+            --shadow: 0 10px 20px rgba(255, 107, 107, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121824;
+            --text-color: #f1f5f9;
+            --nav-bg: #1e293b;
+            --card-bg: #1e293b;
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --border-color: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: var(--transition);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .theme-toggle {
+            background: var(--border-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background-color: #ff5252;
+        }
+
+        footer {
+            background-color: var(--nav-bg);
+            border-top: 2px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🧸 ToyLand</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="products.html" class="active">O'yinchoqlar</a></li>
+                <li><a href="categories.html">Kategoriyalar</a></li>
+                <li><a href="about.html">Biz haqimizda</a></li>
+                <li><a href="contact.html">Bog'lanish</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggleBtn">🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Barcha O'yinchoqlar Catalogi</h1>
+        <div class="products-grid">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558060370-d644479be6f7?auto=format&fit=crop&w=600&q=80" alt="Yumshoq Ayiqcha">
+                <div class="product-info">
+                    <h3>Yumshoq Teddy Ayiqcha</h3>
+                    <p>Ekologik toza va yumshoq materialdan tayyorlangan quchoqlovchi ayiqcha.</p>
+                    <div class="price">150,000 UZS</div>
+                    <button class="buy-btn" onclick="alert('Mahsulot savatchaga qo\'shildi!')">Sotib olish 🛒</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587654562363-605414957aed?auto=format&fit=crop&w=600&q=80" alt="Lego Konstruktor">
+                <div class="product-info">
+                    <h3>Lego Shaharcha Konstruktor</h3>
+                    <p>Bolalarning tasavvurini va mantiqiy fikrlashini rivojlantiruvchi to'plam.</p>
+                    <div class="price">320,000 UZS</div>
+                    <button class="buy-btn" onclick="alert('Mahsulot savatchaga qo\'shildi!')">Sotib olish 🛒</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=600&q=80" alt="Pultli Poyga Mashinasi">
+                <div class="product-info">
+                    <h3>Pultli Poyga Mashinasi</h3>
+                    <p>Yuqori tezlikka ega, batareya bilan ishlaydigan va chidamli pultli mashina.</p>
+                    <div class="price">280,000 UZS</div>
+                    <button class="buy-btn" onclick="alert('Mahsulot savatchaga qo\'shildi!')">Sotib olish 🛒</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=80" alt="Yog'och Mashinalar">
+                <div class="product-info">
+                    <h3>Yog'och Ekologik Mashinalar</h3>
+                    <p>Tabiiy yog'ochdan yasalgan eng kichik bolalar uchun xavfsiz o'yinchoq.</p>
+                    <div class="price">120,000 UZS</div>
+                    <button class="buy-btn" onclick="alert('Mahsulot savatchaga qo\'shildi!')">Sotib olish 🛒</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ToyLand O'yinchoqlar Magazini. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('toyLandTheme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('toyLandTheme', newTheme);
+            themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
